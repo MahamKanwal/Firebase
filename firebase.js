@@ -1,13 +1,15 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+import { getAuth ,createUserWithEmailAndPassword ,signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDx0kN7NeaKQtUqmNx98psxm2SrBmqM6OY",
-    authDomain: "signup-signin-form-a226b.firebaseapp.com",
-    projectId: "signup-signin-form-a226b",
-    storageBucket: "signup-signin-form-a226b.appspot.com",
-    messagingSenderId: "737612878916",
-    appId: "1:737612878916:web:b7a453e59e7e3ab9319811"
-  };
- 
+  apiKey: "AIzaSyAooU0d-6boB47m3NkhPXaI_bj8B7-EctE",
+  authDomain: "fir-uthentication-5942c.firebaseapp.com",
+  projectId: "fir-uthentication-5942c",
+  storageBucket: "fir-uthentication-5942c.appspot.com",
+  messagingSenderId: "708235174726",
+  appId: "1:708235174726:web:bdbf34aabb8a1f26aabb47"
+};
+
 const app = initializeApp(firebaseConfig);
+export {getAuth,createUserWithEmailAndPassword, signInWithEmailAndPassword};
+
