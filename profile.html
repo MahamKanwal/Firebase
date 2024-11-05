@@ -2,15 +2,18 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile-Page</title>
-    <!-- sweetalert.css -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.4/dist/sweetalert2.min.css">
-    <!-- MDB CSS CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.0/mdb.min.css">
-    <!-- CSS File -->
-    <!-- <link rel="stylesheet" href="profile.css"> -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile-Page</title>
+  <!-- sweetalert.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.4/dist/sweetalert2.min.css">
+  <!-- MDB CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.0/mdb.min.css">
+<!-- Bootstrap CSS Link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- CSS File -->
+  <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -18,10 +21,106 @@
 
   <!-- Profile-Page -->
 
-<div id="profile-page"></div>
+  <!-- <div id="profile-page"></div> -->
 
-  <!-- Profile-Page -->
+  <body class="font">
+    <div class="container">
+      <div class="main-body pt-5">
 
+        <!-- /Breadcrumb -->
+
+        <div class="row gutters-sm">
+          <div class="col-md-4 mb-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                  <img src="images/flowers.jpg" alt="Admin" class="rounded-circle" width="150">
+                  <div class="mt-3">
+                    <h4 id="Name">Meow Batman</h4>
+                    <p class="text-secondary mb-1" id="profession">Gotham's Guardian</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-8">
+            <div class="card mb-3">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Full Name</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary" id="Name2">
+                    Meow Batman
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Email</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary" id="getEmail">
+                    fip@jukmuh.al
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Phone</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary" id="phoneNumber">
+                    (239) 816-9029
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Profession</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary" id="profession2">
+                    Gotham's Guardian
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Address</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    Bay Area, San Francisco, CA
+                  </div>
+                </div>
+                <hr>
+                <div class="d-inline-flex flex-row justify-content-start">
+                  <div class="">
+                    <a class="btn orange" id="editBtn">Update Profile</a>
+                  </div>
+                  <div class="">
+                    <a class="btn orange" target="__blank" id="verifyEmail">Email Verification</a>
+                  </div>
+                  <div class="">
+                    <a class="btn orange" target="__blank" id="signOut">Sign out</a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Profile-Page -->
+
+
+<!-- Bootstrap JavaScript Link -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
     <!-- sweetalert.js -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.4/dist/sweetalert2.all.min.js"></script>
     <!-- MDB JavaScript CDN -->
@@ -30,6 +129,6 @@
     <script type="module" src="firebase.js"></script>
     <!-- app.js -->
     <script type="module" src="profile.js"></script>
-</body>
+  </body>
 
 </html>

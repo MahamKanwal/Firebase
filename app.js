@@ -1,8 +1,9 @@
 // SignUp
 
 // importing
-import { getAuth, createUserWithEmailAndPassword } from "./firebase.js";
+import { getAuth, createUserWithEmailAndPassword,signInWithPopup,GoogleAuthProvider } from "./firebase.js";
 const auth = getAuth();
+const provider = new GoogleAuthProvider();
 
 let signUpBtn = document.getElementById("signupBtn");
 let signUpEmail = document.getElementById("signupEmail");
@@ -82,3 +83,27 @@ signUpBtn.addEventListener('click', () => {
   
   
   })
+
+
+  const signUpGoogle = document.getElementById("signUpGoogle");
+
+  signUpGoogle.addEventListener("click", () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        console.log("Access Token:", token);
+        const user = result.user;
+        console.log("User:", user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log("Error Code:", errorCode);
+        console.log("Error Message:", errorMessage);
+        const email = error.customData?.email; 
+        console.log("Email:", email);
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        console.log("Credential:", credential);
+      });
+  });
