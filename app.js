@@ -1,7 +1,7 @@
 // SignUp
 
 // importing
-import { getAuth, createUserWithEmailAndPassword,signInWithPopup,GoogleAuthProvider } from "./firebase.js";
+import { getAuth, createUserWithEmailAndPassword,signInWithPopup,GoogleAuthProvider,collection, addDoc,db} from "./firebase.js";
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
@@ -9,7 +9,37 @@ let signUpBtn = document.getElementById("signupBtn");
 let signUpEmail = document.getElementById("signupEmail");
 let signUpPassword = document.getElementById("signupPassword");
 
-signUpBtn.addEventListener('click', () => {
+// Firestore work
+let firstName = document.getElementById("firstName");
+let lastName = document.getElementById("lastName");
+let phoneNo = document.getElementById("phoneNo");
+
+// const users ={
+//   firstName : firstName.value,
+//   lastName : lastName.value,
+//   phoneNumber : phoneNo.value,
+// }
+
+
+signUpBtn.addEventListener('click', async() => {
+  
+  const users ={
+    firstName : firstName.value,
+    lastName : lastName.value,
+    phoneNumber : phoneNo.value,
+  }
+
+  // Firestore work
+  try {
+    const docRef = await addDoc(collection(db, "users"), {
+     ...users
+    });
+    console.log("Document written with ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+  // Firestore work
+
     if (signUpEmail.value === "" || signUpPassword.value === "") {
       Swal.fire({
         position: "top-end",
@@ -85,25 +115,25 @@ signUpBtn.addEventListener('click', () => {
   })
 
 
-  const signUpGoogle = document.getElementById("signUpGoogle");
+  const googleBtn = document.getElementById("signUpGoogle");
 
-  signUpGoogle.addEventListener("click", () => {
+  googleBtn.addEventListener("click", () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
-        console.log("Access Token:", token);
+        console.log(token);
         const user = result.user;
-        console.log("User:", user);
+        console.log(user);
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log("Error Code:", errorCode);
-        console.log("Error Message:", errorMessage);
+        console.log(errorCode);
+        console.log(errorMessage);
         const email = error.customData?.email; 
-        console.log("Email:", email);
+        console.log(email);
         const credential = GoogleAuthProvider.credentialFromError(error);
-        console.log("Credential:", credential);
+        console.log(credential);
       });
   });
